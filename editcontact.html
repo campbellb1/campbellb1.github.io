@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add New Contact</title>
+
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="JavaScript/jquery-3.3.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="JavaScript/stateDropDown.js"></script>
+    <link rel="stylesheet" href="Style/bootstrap-3.3.7-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="Style/bootstrap-3.3.7-dist/css/bootstrap-theme.css">
+    <link rel="stylesheet" href="Style/MainStyle.css">
+
+
+</head>
+<body background="Images/20th-century-brown-vintage-paper-1.jpg" onload="fillStates()">
+
+<input type="hidden" id="id" value="">
+
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="index.html">Contact Book</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="addnewcontact.html">Add New Contact</a></li>
+            <li><a href="viewcontacts.html">View/Edit Contacts</a></li>
+        </ul>
+
+    </div>
+</nav>
+
+
+<div class="roundedCorners" id="contentArea" style="margin-left: 30%; margin-right: 30%;">
+    <h1 id="newContactHeader">Contact Details</h1>
+    <form id="addContact">
+        <table class="table table-bordered">
+
+            <tbody>
+            <tr id="displayNameRow">
+                <td colspan="1">Name:</td>
+                <td id="displayName" colspan="3" style="font-size: large"></td>
+                <td colspan="1">
+                    <button type="button" class="btn btn-default" id="editNameBtn" style="width: 100%"
+                            onclick="editBtnClick(this)">Edit
+                    </button>
+                </td>
+            </tr>
+            <tr id="editNameRow" hidden>
+                <td colspan="2" width="45%">
+                    <div class="form-group">
+                        <label for="first_name">First Name:</label>
+                        <input type="text" class="form-control text-left input-lg" id="first_name" pattern=".*[^ ].*"
+                               required>
+                    </div>
+                </td>
+                <td colspan="2" width="45%">
+                    <div class="form-group">
+                        <label for="last_name">Last Name:</label>
+                        <input type="text" class="form-control text-left input-lg" id="last_name" required>
+                    </div>
+                </td>
+                <td colspan="1">
+                    <button type="button" class="btn btn-success" id="saveNameBtn" style="width: 100%"
+                            onclick="saveBtnClick(this)">Save
+                    </button>
+                    <button type="button" class="btn btn-danger" id="cancelNameBtn" style="width: 100%"
+                            onclick="cancelBtnClick(this)">Cancel
+                    </button>
+                </td>
+            </tr>
+
+            <tr id="displayCompanyRow">
+                <td colspan="1" width="15%">Company:</td>
+                <td id="displayCompany" colspan="3" style="font-size: large"></td>
+                <td colspan="1">
+                    <button type="button" class="btn btn-default" id="editCompanyBtn" style="width: 100%"
+                            onclick="editBtnClick(this)">Edit
+                    </button>
+                </td>
+            </tr>
+            <tr id="editCompanyRow" hidden>
+                <td colspan="4">
+                    <div class="form-group">
+                        <label for="company_name">Company Name:</label>
+                        <input type="text" class="form-control text-left input-lg" id="company_name">
+                    </div>
+                </td>
+                <td colspan="1">
+                    <button type="button" class="btn btn-success" id="saveCompanyBtn" style="width: 100%"
+                            onclick="saveBtnClick(this)">Save
+                    </button>
+                    &nbsp;
+                    <button type="button" class="btn btn-danger" id="cancelCompanyBtn" style="width: 100%"
+                            onclick="cancelBtnClick(this)">Cancel
+                    </button>
+                </td>
+            </tr>
+            <tr id="displayLocationRow">
+                <td colspan="1" width="15%">Address and Location:</td>
+                <td id="displayLocation" colspan="3" style="font-size: large"></td>
+                <td colspan="1">
+                    <button type="button" class="btn btn-default" id="editLocationBtn" style="width: 100%"
+                            onclick="editBtnClick(this)">Edit
+                    </button>
+                </td>
+            </tr>
+            <tr id="editLocationRow" hidden>
+                <td width="35%">
+                    <div class="form-group">
+                        <label for="address">Address:</label>
+                        <input type="text" class="form-control text-left input-lg" id="address" required>
+                    </div>
+                </td>
+                <td width="20%">
+                    <div class="form-group">
+                        <label for="city">City:</label>
+                        <input type="text" class="form-control text-left input-lg" id="city" required>
+                    </div>
+                </td>
+                <td>
+                    <div class="form-group">
+                        <label for="state">State:</label>
+                        <select class="form-control text-left input-lg" id="state" required>
+                        </select>
+                    </div>
+                </td>
+                <td width="10%">
+                    <div class="form-group">
+                        <label for="zip">Zip Code:</label>
+                        <input type="text" class="form-control text-left input-lg" id="zip" pattern="[0-9-]*" required>
+                    </div>
+                </td>
+                <td colspan="1">
+                    <button type="button" class="btn btn-success" id="saveLocationBtn" style="width: 100%"
+                            onclick="saveBtnClick(this)">Save
+                    </button>
+                    &nbsp;
+                    <button type="button" class="btn btn-danger" id="cancelLocationBtn" style="width: 100%"
+                            onclick="cancelBtnClick(this)">Cancel
+                    </button>
+                </td>
+
+            </tr>
+            <tr id="displayPhoneRow">
+                <td colspan="1" width="15%">Phone:</td>
+                <td id="displayPhone" colspan="3" style="font-size: large"></td>
+                <td colspan="1">
+                    <button type="button" class="btn btn-default " id="editPhoneBtn" style="width: 100%"
+                            onclick="editBtnClick(this)">Edit
+                    </button>
+                </td>
+            </tr>
+            </tr>
+            <tr id="editPhoneRow" hidden>
+                <td colspan="4">
+                    <div class="form-group">
+                        <label for="phone">Phone Number:</label>
+                        <input type="tel" class="form-control text-left input-lg" id="phone" placeholder="888 888 8888"
+                               pattern="^(1\s?)?((\([0-9]{3}\))|[0-9]{3})[\s\-]?[\0-9]{3}[\s\-]?[0-9]{4}$" required/>
+                    </div>
+                </td>
+                <td colspan="1">
+                    <button type="button" class="btn btn-success" id="savePhoneBtn" style="width: 100%"
+                            onclick="saveBtnClick(this)">Save
+                    </button>
+                    &nbsp;
+                    <button type="button" class="btn btn-danger" id="cancelPhoneBtn" style="width: 100%"
+                            onclick="cancelBtnClick(this)">Cancel
+                    </button>
+                </td>
+            </tr>
+            <tr id="displayWorkPhoneRow">
+                <td colspan="1" width="15%">Work-Phone:</td>
+                <td id="displayWorkPhone" colspan="3" style="font-size: large"></td>
+                <td colspan="1">
+                    <button type="button" class="btn btn-default " id="editPhonesBtn" style="width: 100%"
+                            onclick="editBtnClick(this)">Edit
+                    </button>
+                </td>
+            <tr id="editWorkPhoneRow" hidden>
+                <td colspan="4">
+                    <div class="form-group">
+                        <label for="work_phone">Work Phone Number:</label>
+                        <input type="tel" class="form-control text-left input-lg" id="work_phone"
+                               placeholder="888 888 8888"
+                               pattern="^(1\s?)?((\([0-9]{3}\))|[0-9]{3})[\s\-]?[\0-9]{3}[\s\-]?[0-9]{4}$" required/>
+                    </div>
+                </td>
+                <td colspan="1">
+                    <button type="button" class="btn btn-success" id="saveWorkPhoneBtn" style="width: 100%"
+                            onclick="saveBtnClick(this)">Save
+                    </button>
+                    &nbsp;
+                    <button type="button" class="btn btn-danger" id="cancelWorkPhoneBtn" style="width: 100%"
+                            onclick="cancelBtnClick(this)">Cancel
+                    </button>
+                </td>
+            </tr>
+            <tr id="displayEmailRow">
+                <td colspan="1" width="15%">Email:</td>
+                <td id="displayEmail" colspan="3" style="font-size: large"></td>
+                <td colspan="1">
+                    <button type="button" class="btn btn-default " id="editEmailBtn" style="width: 100%"
+                            onclick="editBtnClick(this)">Edit
+                    </button>
+                </td>
+            </tr>
+            <tr id="editEmailRow" hidden>
+                <td colspan="4">
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" class="form-control text-left input-lg" id="email" required>
+                    </div>
+                </td>
+                <td colspan="1">
+                    <button type="button" class="btn btn-success" id="saveEmailBtn" style="width: 100%"
+                            onclick="saveBtnClick(this)">Save
+                    </button>
+                    &nbsp;
+                    <button type="button" class="btn btn-danger" id="cancelEmailBtn" style="width: 100%"
+                            onclick="cancelBtnClick(this)">Cancel
+                    </button>
+                </td>
+            </tr>
+            <tr id="displayUrlRow">
+                <td colspan="1" width="15%">Url:</td>
+                <td id="displayUrl" colspan="3" style="font-size: large"></td>
+                <td colspan="1">
+                    <button type="button" class="btn btn-default " id="editUrlBtn" style="width: 100%"
+                            onclick="editBtnClick(this)">Edit
+                    </button>
+                </td>
+            </tr>
+            <tr id="editUrlRow" hidden>
+                <td colspan="4">
+                    <div class="form-group">
+                        <label for="url">URL:</label>
+                        <input type="url" class="form-control text-left input-lg" id="url">
+                    </div>
+                </td>
+                <td colspan="1">
+                    <button type="button" class="btn btn-success" id="saveUrlBtn" style="width: 100%"
+                            onclick="saveBtnClick(this)">Save
+                    </button>
+                    &nbsp;
+                    <button type="button" class="btn btn-danger" id="cancelUrlBtn" style="width: 100%"
+                            onclick="cancelBtnClick(this)">Cancel
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+    </form>
+    <div class="text-center" id="deleteBtnDiv">
+        <button class="btn btn-danger" id="deleteBtn" onClick="deleteContact()">Delete This Contact</button>
+    </div>
+</div>
+<script src="JavaScript/editcontact.js"></script>
+</body>
+</html>
