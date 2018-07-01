@@ -1,46 +1,14 @@
 /**
- *
+ * Purpose: This function sits on the #submitButton and handles the 'click' function.
+ *          Once clicked, the information will be validated, and if all of the forms
+ *          have input, POST the information to the Contacts API as a json object.
  */
 $(function ()
 {
     $('#submitButton').on('click', function ()
     {
-        //     if ($("#addContact")[0].checkValidity() === true)
-        //     {
-        //         var passwordsMatch = true;
-        //         var foundEmptyField = false;
-        //         var inputForms = document.getElementById("addContact").querySelectorAll("input");
-        //
-        //
-        //         Array.from(inputForms).forEach(function (field)
-        //         {
-        //
-        //
-        //             const strValue = "" + field.value;
-        //             if (strValue === null || strValue === '')
-        //             {
-        //                 foundEmptyField = true;
-        //                 return;
-        //             }
-        //
-        //         });
-        //
-        //         if(foundEmptyField)
-        //         {
-        //             alert("Please Enter Values for All of the Fields");
-        //         }
-        //
-        //         if (document.querySelector('#password').value !== document.querySelector('#confirmPassword').value)
-        //         {
-        //             passwordsMatch = false;
-        //             alert("The Passwords do not match!");
-        //         }
-        //
-        //         if(passwordsMatch && !foundEmptyField)
         if (validateForm())
         {
-
-
             $.ajax({
                 url: 'https://challenge.acstechnologies.com/api/contact/',
                 type: 'POST',
@@ -59,6 +27,9 @@ $(function ()
                     url: document.querySelector('#url').value
                 },
                 headers: {"X-Auth-Token": "jaLXjbyj5vPfcBhkn8G64sRNs8be6GwRgqPOvGHk"},
+
+                // On Success, hide the input forms and prompt the user as to whether or not
+                // they want to create another contact.
                 success: function ()
                 {
                     document.getElementById("newContactHeader").style.display = "none";
@@ -92,13 +63,8 @@ $(function ()
                 {
                     alert("Failed to create a New Contact with the name: " + document.getElementById("firstName").value);
                 }
-
             });
-
-
         }
-
-
     })
     ;
 })
@@ -106,7 +72,7 @@ $(function ()
 
 
 /**
- *
+ * Trim any excess whitespace when a user inputs into a form.
  */
 $('.form-control').on('blur', function ()
 {
@@ -117,6 +83,7 @@ $('.form-control').on('blur', function ()
 
 const submitButton = document.forms['addContact'];
 
+// Prevent button from causing a PostBack.
 submitButton.addEventListener('submit', function (e)
 {
     e.preventDefault();

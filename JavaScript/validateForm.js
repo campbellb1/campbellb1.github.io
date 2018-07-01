@@ -1,3 +1,9 @@
+/**
+ * Function: validateForm
+ * Purpose: Checks all of the inputs within the #addContact area to make sure at least something was
+ *          input into them.
+ * @returns {boolean}
+ */
 function validateForm()
 {
 if ($("#addContact")[0].checkValidity() === true)
