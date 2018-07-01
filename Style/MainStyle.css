@@ -98,6 +98,16 @@ table.leftAlign tr td
     border: black 2px;
 }
 
+.homePageButton
+{
+    color: white;
+    font-size: x-large;
+    text-shadow: 2px 2px black;
+    height: 300px;
+    width:  300px;
+    padding: 2%;
+}
+
 /* Container holding the image and the text */
 .container {
     position: relative;
