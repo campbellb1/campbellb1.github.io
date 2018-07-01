@@ -53,18 +53,17 @@
                 <td colspan="2" width="45%">
                     <div class="form-group">
                         <label for="first_name">First Name:</label>
-                        <input type="text" class="form-control text-left input-lg" id="first_name" pattern=".*[^ ].*"
-                               required>
+                        <input type="text" class="form-control text-left input-lg" id="first_name" pattern=".*[^ ].*">
                     </div>
                 </td>
                 <td colspan="2" width="45%">
                     <div class="form-group">
                         <label for="last_name">Last Name:</label>
-                        <input type="text" class="form-control text-left input-lg" id="last_name" required>
+                        <input type="text" class="form-control text-left input-lg" id="last_name" >
                     </div>
                 </td>
                 <td colspan="1">
-                    <button type="button" class="btn btn-success" id="saveNameBtn" style="width: 100%"
+                    <button type="submit" class="btn btn-success" id="saveNameBtn" style="width: 100%"
                             onclick="saveBtnClick(this)">Save
                     </button>
                     <button type="button" class="btn btn-danger" id="cancelNameBtn" style="width: 100%"
@@ -90,7 +89,7 @@
                     </div>
                 </td>
                 <td colspan="1">
-                    <button type="button" class="btn btn-success" id="saveCompanyBtn" style="width: 100%"
+                    <button type="submit" class="btn btn-success" id="saveCompanyBtn" style="width: 100%"
                             onclick="saveBtnClick(this)">Save
                     </button>
                     &nbsp;
@@ -112,30 +111,30 @@
                 <td width="35%">
                     <div class="form-group">
                         <label for="address">Address:</label>
-                        <input type="text" class="form-control text-left input-lg" id="address" required>
+                        <input type="text" class="form-control text-left input-lg" id="address" >
                     </div>
                 </td>
                 <td width="20%">
                     <div class="form-group">
                         <label for="city">City:</label>
-                        <input type="text" class="form-control text-left input-lg" id="city" required>
+                        <input type="text" class="form-control text-left input-lg" id="city" >
                     </div>
                 </td>
                 <td>
                     <div class="form-group">
                         <label for="state">State:</label>
-                        <select class="form-control text-left input-lg" id="state" required>
+                        <select class="form-control text-left input-lg" id="state" >
                         </select>
                     </div>
                 </td>
                 <td width="10%">
                     <div class="form-group">
                         <label for="zip">Zip Code:</label>
-                        <input type="text" class="form-control text-left input-lg" id="zip" pattern="[0-9-]*" required>
+                        <input type="text" class="form-control text-left input-lg" id="zip" pattern="[0-9-]*" >
                     </div>
                 </td>
                 <td colspan="1">
-                    <button type="button" class="btn btn-success" id="saveLocationBtn" style="width: 100%"
+                    <button type="submit" class="btn btn-success" id="saveLocationBtn" style="width: 100%"
                             onclick="saveBtnClick(this)">Save
                     </button>
                     &nbsp;
@@ -160,11 +159,11 @@
                     <div class="form-group">
                         <label for="phone">Phone Number:</label>
                         <input type="tel" class="form-control text-left input-lg" id="phone" placeholder="888 888 8888"
-                               pattern="^(1\s?)?((\([0-9]{3}\))|[0-9]{3})[\s\-]?[\0-9]{3}[\s\-]?[0-9]{4}$" required/>
+                               pattern="^(1\s?)?((\([0-9]{3}\))|[0-9]{3})[\s\-]?[\0-9]{3}[\s\-]?[0-9]{4}$" />
                     </div>
                 </td>
                 <td colspan="1">
-                    <button type="button" class="btn btn-success" id="savePhoneBtn" style="width: 100%"
+                    <button type="submit" class="btn btn-success" id="savePhoneBtn" style="width: 100%"
                             onclick="saveBtnClick(this)">Save
                     </button>
                     &nbsp;
@@ -187,11 +186,11 @@
                         <label for="work_phone">Work Phone Number:</label>
                         <input type="tel" class="form-control text-left input-lg" id="work_phone"
                                placeholder="888 888 8888"
-                               pattern="^(1\s?)?((\([0-9]{3}\))|[0-9]{3})[\s\-]?[\0-9]{3}[\s\-]?[0-9]{4}$" required/>
+                               pattern="^(1\s?)?((\([0-9]{3}\))|[0-9]{3})[\s\-]?[\0-9]{3}[\s\-]?[0-9]{4}$" />
                     </div>
                 </td>
                 <td colspan="1">
-                    <button type="button" class="btn btn-success" id="saveWorkPhoneBtn" style="width: 100%"
+                    <button type="submit" class="btn btn-success" id="saveWorkPhoneBtn" style="width: 100%"
                             onclick="saveBtnClick(this)">Save
                     </button>
                     &nbsp;
@@ -213,11 +212,11 @@
                 <td colspan="4">
                     <div class="form-group">
                         <label for="email">Email:</label>
-                        <input type="email" class="form-control text-left input-lg" id="email" required>
+                        <input type="email" class="form-control text-left input-lg" id="email" >
                     </div>
                 </td>
                 <td colspan="1">
-                    <button type="button" class="btn btn-success" id="saveEmailBtn" style="width: 100%"
+                    <button type="submit" class="btn btn-success" id="saveEmailBtn" style="width: 100%"
                             onclick="saveBtnClick(this)">Save
                     </button>
                     &nbsp;
@@ -243,7 +242,7 @@
                     </div>
                 </td>
                 <td colspan="1">
-                    <button type="button" class="btn btn-success" id="saveUrlBtn" style="width: 100%"
+                    <button type="submit" class="btn btn-success" id="saveUrlBtn" style="width: 100%"
                             onclick="saveBtnClick(this)">Save
                     </button>
                     &nbsp;

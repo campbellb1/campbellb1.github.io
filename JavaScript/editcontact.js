@@ -9,6 +9,7 @@ var preEditedValues = {};   // Holds all the pre-edited values, just in case the
  */
 $(document).ready(function ()
 {
+
     var url_string = window.location.href;
     var url = new URL(url_string);
     var queryParams = window.location.search.substr(1).split('&').reduce(function (q, query) {
@@ -114,6 +115,7 @@ function editBtnClick(element)
             var replacementRowID = rowToSwap.id.replace("display", 'edit');
             var replacementRow = document.getElementById(replacementRowID);
             replacementRow.removeAttribute('hidden');
+            replacementRow.setAttribute('required', 'true');
 
             var activeInputs = replacementRow.querySelectorAll('input, select');
             dataToSend["id"] = contactID;
@@ -141,6 +143,9 @@ function editBtnClick(element)
         replacementRowID = rowToSwap.id.replace("display", 'edit');
         replacementRow = document.getElementById(replacementRowID);
         replacementRow.removeAttribute('hidden');
+        replacementRow.firstElementChild.firstElementChild.lastElementChild.setAttribute('required', 'true');
+        replacementRow.children[1].firstElementChild.lastElementChild.setAttribute('required', 'true');
+
 
         activeInputs = replacementRow.querySelectorAll('input, select');
         dataToSend["id"] = contactID;
@@ -174,21 +179,23 @@ function editBtnClick(element)
  */
 function saveBtnClick(element)
 {
-    var rowToParse = document.getElementById(element.id).parentElement.parentElement;
-    var activeInputs = rowToParse.querySelectorAll('input, select');
-    dataToSend["id"] = contactID;
-    dataToSend['first_name'] = document.querySelector('#first_name').value;
-    Array.from(activeInputs).forEach(function (field)
+    if ($("#addContact")[0].checkValidity() === true)
     {
-        dataToSend[field.id] = field.value;
-    });
+        var rowToParse = document.getElementById(element.id).parentElement.parentElement;
+        var activeInputs = rowToParse.querySelectorAll('input, select');
+        dataToSend["id"] = contactID;
+        dataToSend['first_name'] = document.querySelector('#first_name').value;
+        Array.from(activeInputs).forEach(function (field)
+        {
+            dataToSend[field.id] = field.value;
+        });
 
 
-    $.ajax({
-        url: 'https://challenge.acstechnologies.com/api/contact/' + contactID,
-        headers: {"X-Auth-Token": "jaLXjbyj5vPfcBhkn8G64sRNs8be6GwRgqPOvGHk"},
-        type: 'PUT',
-        dataType: 'json',
+        $.ajax({
+            url: 'https://challenge.acstechnologies.com/api/contact/' + contactID,
+            headers: {"X-Auth-Token": "jaLXjbyj5vPfcBhkn8G64sRNs8be6GwRgqPOvGHk"},
+            type: 'PUT',
+            dataType: 'json',
             data: {
                 first_name: document.querySelector('#first_name').value,
                 last_name: document.querySelector('#last_name').value,
@@ -202,17 +209,19 @@ function saveBtnClick(element)
                 email: document.querySelector('#email').value,
                 url: document.querySelector('#url').value
             },
-        success: function ()
-        {
-            //resize the window back to the display-mode.
-            window.location.assign("editcontact.html?id=" + contactID);
+            success: function ()
+            {
+                //resize the window back to the display-mode.
+                window.location.assign("editcontact.html?id=" + contactID);
 
-        },
-        error: function ()
-        {
-            alert("Failed to Edit Contact: " + document.getElementById("first_name").value);
-        }
-    });
+            },
+            error: function ()
+            {
+                alert("Failed to Edit Contact: " + document.getElementById("first_name").value);
+            }
+
+        });
+    }
 }
 
 /**
@@ -282,3 +291,9 @@ function deleteContact()
         //do nothing.
     }
 }
+
+// Prevent button from causing a PostBack.
+document.addEventListener('submit', function (e)
+{
+    e.preventDefault();
+});
