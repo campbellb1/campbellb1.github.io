@@ -22,7 +22,7 @@ $(document).ready(function ()
 
     document.querySelector('#id').value = contactID;
     $.ajax({
-        url: 'https://challenge.acstechnologies.com/api/contact/' + contactID,
+        url: 'https://challenge.acstechnologies.com/api/contact/10118',
         dataType: 'json',
         type: 'GET',
         headers: {"X-Auth-Token": "jaLXjbyj5vPfcBhkn8G64sRNs8be6GwRgqPOvGHk"},
