@@ -1,8 +1,12 @@
-var globalData;
-var dataToSend = {};
-var contactID;
-var preEditedValues = {};
+var globalData;             // Allows the received json data to be used throughout this file.
+var dataToSend = {};        // This will hold the updated contact info to be sent (PUT) to the server.
+var contactID;              // Holds the ID of the contact to edit.
+var preEditedValues = {};   // Holds all the pre-edited values, just in case the user doesn't want to save the changes.
 
+/**
+ * Purpose: Loads a contact based on the ID passed in via the URL parameter. Fills in the Forms and the
+ *          Display information.
+ */
 $(document).ready(function ()
 {
     var url_string = window.location.href;
@@ -14,6 +18,7 @@ $(document).ready(function ()
         dataType: 'json',
         type: 'GET',
         headers: {"X-Auth-Token": "jaLXjbyj5vPfcBhkn8G64sRNs8be6GwRgqPOvGHk"},
+        // On success, fill the displays and the input forms.
         success: function (data)
         {
             globalData = data;
@@ -36,17 +41,26 @@ $(document).ready(function ()
             document.querySelector('#url').value = data.url;
             document.querySelector('#displayUrl').innerHTML += "<a href=" + data.url + ">" + data.url + "</a>";
         },
+        // On failure, tell the user that the contact wasn't found and prompt to choose one on the viewcontacts.html.
         error: function ()
         {
             document.querySelector('#addContact').remove();
             document.querySelector('#deleteBtn').remove();
-            document.querySelector('#contentArea').firstElementChild.innerHTML = "No contact loaded. If you would like " +
+            document.querySelector('#contentArea').firstElementChild.innerHTML = "No contact was not found. If you would like " +
                 "to edit a contact please choose one on <a href='viewcontacts.html'>this page";
         }
     });
-
 });
 
+/**
+ * Function:    editBtnClick
+ * Purpose:     Checks to see if there are any currently-open editable rows--if so, check if their data has been
+ *              changed. If there is changed data in another open-edit row, ask the user if they want to discard
+ *              the changes. If no, do nothing--if so, discard the changes, close the open edit-row and open
+ *              the newly selected edit-row. If there are no open rows or changes, simply open up the new edit
+ *              row and hide the display-version of the row.
+ * @param element
+ */
 function editBtnClick(element)
 {
     var anotherEditBoxOpen;
@@ -130,11 +144,28 @@ function editBtnClick(element)
         });
     }
 
-    document.querySelector('#contentArea').style.marginLeft = '10%';
-    document.querySelector('#contentArea').style.marginRight = '10%';
+
+
+    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+        document.querySelector('#contentArea').style.marginLeft = '0%';
+        document.querySelector('#contentArea').style.marginRight = '0%';
+    }
+    else
+    {
+        document.querySelector('#contentArea').style.marginLeft = '10%';
+        document.querySelector('#contentArea').style.marginRight = '10%';
+    }
+
 
 }
 
+/**
+ * Function:    saveBtnClick
+ * Purpose:     As suggested by the name, this function fires on clicking one of the save buttons. All of the
+ *              values in the Input Fields are taken and PUT to the API to update the designated contact, identified
+ *              by the ID in the URL.
+ * @param element
+ */
 function saveBtnClick(element)
 {
     var rowToParse = document.getElementById(element.id).parentElement.parentElement;
@@ -167,9 +198,8 @@ function saveBtnClick(element)
             },
         success: function ()
         {
+            //resize the window back to the display-mode.
             window.location.assign("editcontact.html?id=" + contactID);
-            document.querySelector('#contentArea').style.marginLeft = '10%';
-            document.querySelector('#contentArea').style.marginRight = '10%';
 
         },
         error: function ()
@@ -179,6 +209,13 @@ function saveBtnClick(element)
     });
 }
 
+/**
+ * Function:    cancelBtnClick
+ * Purpose:     As the name suggests, this function is called when the user clicks on one of the cancel buttons.
+ *              This button will restore the row back to display-mode and revert the input form values back to their
+ *              pre-edited versions.
+ * @param element
+ */
 function cancelBtnClick(element)
 {
     var unsavedChangesPresent = false;
