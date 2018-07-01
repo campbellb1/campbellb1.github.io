@@ -11,7 +11,13 @@ $(document).ready(function ()
 {
     var url_string = window.location.href;
     var url = new URL(url_string);
-    contactID = url.searchParams.get("id");
+    var queryParams = window.location.search.substr(1).split('&').reduce(function (q, query) {
+        var chunks = query.split('=');
+        var key = chunks[0];
+        var value = chunks[1];
+        return (q[key] = value, q);
+    }, {});
+    contactID = queryParams["id"];
     document.querySelector('#id').value = contactID;
     $.ajax({
         url: 'https://challenge.acstechnologies.com/api/contact/' + contactID,
