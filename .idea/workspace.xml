@@ -39,7 +39,13 @@
       <file leaf-file-name="getlistofcontacts.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/JavaScript/getlistofcontacts.js">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="-255" />
+=======
+            <state relative-caret-position="560">
+              <caret line="201" column="71" selection-start-line="201" selection-start-column="71" selection-end-line="201" selection-end-column="71" />
+            </state>
+>>>>>>> parent of 70e1904... More Mobile Experimentation
           </provider>
         </entry>
       </file>
@@ -144,12 +150,16 @@
       <option name="presentableId" value="Default" />
       <updated>1530469762646</updated>
       <workItem from="1530469766517" duration="1101000" />
-      <workItem from="1530474516602" duration="3640000" />
+      <workItem from="1530474516602" duration="2789000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="4752000" />
+=======
+    <option name="totallyTimeSpent" value="3890000" />
+>>>>>>> parent of 70e1904... More Mobile Experimentation
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -380,8 +390,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/JavaScript/editcontact.js">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="408">
           <caret line="24" column="70" selection-start-line="24" selection-start-column="70" selection-end-line="24" selection-end-column="70" />
+=======
+        <state relative-caret-position="560">
+          <caret line="201" column="71" selection-start-line="201" selection-start-column="71" selection-end-line="201" selection-end-column="71" />
+>>>>>>> parent of 70e1904... More Mobile Experimentation
         </state>
       </provider>
     </entry>
