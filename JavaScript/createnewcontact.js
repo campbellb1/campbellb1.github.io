@@ -59,7 +59,11 @@ $(function ()
 
                     contentArea.appendChild(anotherPrompt);
                     contentArea.appendChild(yesNoForm);
+                    yesNoForm.style.textAlign = 'center';
+                    yesButton.style.width = "20%";
+                    noButton.style.width = "20%";
                     yesNoForm.appendChild(yesButton);
+                    yesNoForm.appendChild(document.createTextNode("\u00A0\u00A0\u00A0\u00A0"));
                     yesNoForm.appendChild(noButton);
                 },
                 error: function ()
