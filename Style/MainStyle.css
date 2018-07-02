@@ -1,4 +1,5 @@
-h1
+/*Overrides Bootstrap Defaults and adds some extra styling as needed.*/
+h1, h4
 {
     text-align: center;
 }
@@ -18,7 +19,7 @@ body, html
     height: 100%;
     margin: 0;
 }
-
+/*Styles the Home-page's "Hero Image"*/
 .hero-image
 {
     background-image: url("../Images/book-book-pages-bookcase-415071.jpg");
@@ -58,6 +59,8 @@ body, html
     background-color: #555;
     color: white;
 }
+/*---------------------*/
+
 
 label
 {

@@ -1,3 +1,13 @@
+/**
+ * editcontact.js
+ * Programmer:  Brandon L. Campbell
+ * Date:        June-July, 2018
+ * Purpose:     This javascript file handles most of the javascript functionality for the editcontact.html page.
+ *              The file allows the page to load in the details of the contact (by url-passed ID) into the display
+ *              and edit rows. The functions allow the user to choose a row--one at a time--to edit. If the edits
+ *              are valid, the changes are updated to the currently loaded record.
+ */
+
 var globalData;             // Allows the received json data to be used throughout this file.
 var dataToSend = {};        // This will hold the updated contact info to be sent (PUT) to the server.
 var contactID;              // Holds the ID of the contact to edit.
@@ -265,6 +275,12 @@ function cancelBtnClick(element)
 
 }
 
+/**
+ * Function:    deleteContact
+ * Purpose:     This function allows the user to delete the currently loaded record. Before the deletion occurs,
+ *              the user is prompted whether or not they *really* want to delete the record. If so, the record is
+ *              deleted and the user is returned to the viewcontacts.html page.
+ */
 function deleteContact()
 {
     if(confirm("You are about to DELETE the record of " + globalData.first_name + " " + globalData.last_name + ". " +
@@ -279,6 +295,8 @@ function deleteContact()
             success: function (data)
             {
                 alert("Record successfully deleted");
+                window.location.assign("viewcontacts.html");
+
             },
             error: function ()
             {

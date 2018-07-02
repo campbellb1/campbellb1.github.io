@@ -1,7 +1,9 @@
 /**
  * Function: validateForm
- * Purpose: Checks all of the inputs within the #addContact area to make sure at least something was
- *          input into them.
+ * Programmer:  Brandon L. Campbell
+ * Date:        June-July, 2018
+ * Purpose:     Checks all of the inputs within the #addContact area to make sure at least something was
+ *              input into them.
  * @returns {boolean}
  */
 function validateForm()

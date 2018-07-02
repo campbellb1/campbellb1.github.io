@@ -1,3 +1,5 @@
+/*Styles the tables on the Add New Contacts page. Simply removes the borders.*/
+
 .table {
     border-bottom: 0px !important;
 }

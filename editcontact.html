@@ -1,3 +1,9 @@
+<!--editcontact.html
+    Programmer: Brandon L. Campbell
+    Date:       June-July, 2018
+    Purpose:    The purpose of this file is to allow a user to edit pre-existing contacts. All of a user's edits
+                must adhere to the format.
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +24,7 @@
 <body background="Images/20th-century-brown-vintage-paper-1.jpg" onload="fillStates()">
 
 <input type="hidden" id="id" value="">
-
+<!--N A V B A R-->
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -33,13 +39,14 @@
     </div>
 </nav>
 
-
+<!--Beginning of main content area-->
 <div class="roundedCorners" id="contentArea" style="margin-left: 30%; margin-right: 30%;">
     <h1 id="newContactHeader">Contact Details</h1>
     <form id="addContact">
         <table class="table table-bordered">
 
             <tbody>
+            <!--Name Display and Edit Rows-->
             <tr id="displayNameRow">
                 <td colspan="1" style="font-size: large">Name:</td>
                 <td id="displayName" colspan="3" style="font-size: large"></td>
@@ -71,7 +78,7 @@
                     </button>
                 </td>
             </tr>
-
+            <!--Company Display and Edit Rows-->
             <tr id="displayCompanyRow">
                 <td colspan="1" width="20%" style="font-size: large">Company:</td>
                 <td id="displayCompany" colspan="3" style="font-size: large"></td>
@@ -98,6 +105,7 @@
                     </button>
                 </td>
             </tr>
+            <!--Location Display and Edit Rows-->
             <tr id="displayLocationRow">
                 <td colspan="1" width="20%" style="font-size: large">Address and Location:</td>
                 <td id="displayLocation" colspan="3" style="font-size: large"></td>
@@ -142,8 +150,8 @@
                             onclick="cancelBtnClick(this)">Cancel
                     </button>
                 </td>
-
             </tr>
+            <!--Phone Display and Edit Rows-->
             <tr id="displayPhoneRow">
                 <td colspan="1" width="20%" style="font-size: large">Phone:</td>
                 <td id="displayPhone" colspan="3" style="font-size: large"></td>
@@ -172,6 +180,7 @@
                     </button>
                 </td>
             </tr>
+            <!--Work Phone Display and Edit Rows-->
             <tr id="displayWorkPhoneRow">
                 <td colspan="1" width="20%" style="font-size: large">Work-Phone:</td>
                 <td id="displayWorkPhone" colspan="3" style="font-size: large"></td>
@@ -199,6 +208,7 @@
                     </button>
                 </td>
             </tr>
+            <!--Email Display and Edit Rows-->
             <tr id="displayEmailRow">
                 <td colspan="1" width="20%" style="font-size: large">Email:</td>
                 <td id="displayEmail" colspan="3" style="font-size: large"></td>
@@ -225,6 +235,7 @@
                     </button>
                 </td>
             </tr>
+            <!--URL Display and Edit Rows-->
             <tr id="displayUrlRow">
                 <td colspan="1" width="20%" style="font-size: large">Url:</td>
                 <td id="displayUrl" colspan="3" style="font-size: large"></td>

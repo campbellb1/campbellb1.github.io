@@ -1,7 +1,10 @@
 /**
- * Purpose: This function sits on the #submitButton and handles the 'click' function.
- *          Once clicked, the information will be validated, and if all of the forms
- *          have input, POST the information to the Contacts API as a json object.
+ * createnewcontact.js
+ * Programmer:  Brandon L. Campbell
+ * Date:        June-July, 2018
+ * Purpose:     This function sits on the #submitButton and handles the 'click' function.
+ *              Once clicked, the information will be validated, and if all of the forms
+ *              have input, POST the information to the Contacts API as a json object.
  */
 $(function ()
 {
