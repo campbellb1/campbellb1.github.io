@@ -13,7 +13,7 @@ $(function ()
         if (validateForm())
         {
             $.ajax({
-                url: 'https://challenge.acstechnologies.com/api/contact/',
+                url: 'http://ec2-18-222-231-111.us-east-2.compute.amazonaws.com:3000',
                 type: 'POST',
                 dataType: 'json',
                 data: {
@@ -29,7 +29,6 @@ $(function ()
                     email: document.querySelector('#email').value,
                     url: document.querySelector('#url').value
                 },
-                headers: {"X-Auth-Token": "jaLXjbyj5vPfcBhkn8G64sRNs8be6GwRgqPOvGHk"},
 
                 // On Success, hide the input forms and prompt the user as to whether or not
                 // they want to create another contact.
