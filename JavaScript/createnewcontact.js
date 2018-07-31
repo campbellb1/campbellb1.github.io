@@ -13,10 +13,11 @@ $(function ()
         if (validateForm())
         {
             $.ajax({
-                url: 'http://ec2-18-222-231-111.us-east-2.compute.amazonaws.com:3000',
+                url: 'http://ec2-18-222-231-111.us-east-2.compute.amazonaws.com:3000/contacts',
                 type: 'POST',
                 dataType: 'json',
-                data: {
+                data:
+                {
                     first_name: document.querySelector('#firstName').value,
                     last_name: document.querySelector('#lastName').value,
                     company_name: document.querySelector('#company').value,
