@@ -13,7 +13,7 @@ $(function ()
         if (validateForm())
         {
             $.ajax({
-                url: 'http://ec2-18-222-231-111.us-east-2.compute.amazonaws.com:3000',
+                url: 'https://ec2-18-222-231-111.us-east-2.compute.amazonaws.com:3000',
                 type: 'POST',
                 dataType: 'json',
                 data: {
