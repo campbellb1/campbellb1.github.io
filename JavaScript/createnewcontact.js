@@ -20,7 +20,7 @@ $(function ()
                 {
                     first_name: document.querySelector('#firstName').value,
                     last_name: document.querySelector('#lastName').value,
-                    company_name: document.querySelector('#company').value,
+                    company: document.querySelector('#company').value,
                     address: document.querySelector('#address').value,
                     city: document.querySelector('#city').value,
                     state: document.querySelector('#state').value,
